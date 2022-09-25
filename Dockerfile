@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3-298.1618432845
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.6-941
 
 LABEL name="spaship/httpd" \
   summary="Apache Http Server for SPAship" \
