@@ -3,11 +3,12 @@ FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3-298.1618432845
 LABEL name="spaship/httpd" \
   summary="Apache Http Server for SPAship" \
   description="This a runtime image for SPAship apps" \
-  maintainer="Kun Yan <kyan@redhat.com>"
+  maintainer="Arkaprovo Bhattacharjee <arbhatta@redhat.com>"
 
 EXPOSE 8080
 
-RUN microdnf install -y --nodocs httpd && microdnf clean all
+RUN microdnf install -y --nodocs httpd vim-minimal coreutils && microdnf clean all
+
 
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf \
   && sed -i 's/AllowOverride None/AllowOverride All/' /etc/httpd/conf/httpd.conf \
